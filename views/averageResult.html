@@ -1,0 +1,122 @@
+<%
+from bottle import request
+
+#Gets DID from the previous page based on user's input.
+DID = request.forms.get("DID")
+
+#Reads everything from Employee table based on user's input. It's going to help us to display requested data.
+#Question mark represent that program is using user's requested input.
+
+result = c.execute("SELECT AVG(Salary) FROM Employee WHERE DID = ?",(DID, ))
+result = c.fetchall()  ##do not forget to fetch!
+
+#The following HTML code also includes a for loop, it basically displays the "result" variable.
+
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+    <head>
+    <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+
+th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #3399CC;
+  color: white;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+        <title>Employee Database</title>
+        <meta charset = "utf-8" ?>
+    </head>
+    <center>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+
+    <br>
+    <body>
+        <p>Average annual income of Department{{DID}} </p>
+
+        <br>
+
+        <table>
+            <tr>
+                <th>Department ID</th>
+                <th>Average</th>
+
+            </tr>
+
+            %for record in result:
+            <tr>
+                <td>{{DID}}</td>
+                <td>${{record[0]}}</td>
+
+            </tr>
+            %end
+
+
+        </table>
+
+    </center>
+    </body>
+</html>
+
+

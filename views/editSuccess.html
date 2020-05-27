@@ -1,0 +1,65 @@
+<%
+from bottle import request
+
+#Gets information from the previous page.
+
+ID = request.forms.get("ID")
+FirstName = request.forms.get("FirstName")
+LastName = request.forms.get("LastName")
+Email = request.forms.get("Email")
+Gender = request.forms.get("Gender")
+Age = request.forms.get("Age")
+Salary = request.forms.get("Salary")
+DateStarted = request.forms.get("DateStarted")
+DID = request.forms.get("DID")
+AttendanceWarns = request.forms.get("AttendanceWarns")
+
+#creates an empty variable as "sql".
+
+#Updates "Employee" table based on user's inputs, along with selected Employee ID number.
+#Note: Question marks represent that program is executing user's input.
+
+sql = """
+
+
+
+
+UPDATE Employee
+SET
+  FirstName = ?,
+  LastName = ?,
+  Email =?,
+  Gender = ?,
+  Age = ?,
+  Salary = ?,
+  DateStarted = ?,
+  DID = ?,
+  AttendanceWarns = ?
+
+WHERE
+  ID = ? """
+
+#Executes the changes and finishes editing.
+
+c.execute(sql, (FirstName, LastName, Email, Gender, Age, Salary, DateStarted, DID, AttendanceWarns, ID))
+db.commit()
+
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+    <head>
+        <title>Editing the employee...</title>
+        <meta charset = "utf-8" ?>
+
+    </head>
+    <body>
+        <center>
+        <h1>Magic Time!</h1>
+        <p>You'll be redirecting to the main menu in a second... </p>
+        <p>Also I'm editing {{FirstName}} {{LastName}}</p>
+        </center>
+
+        <meta http-equiv="refresh" content="1;url=http://onurucar.pythonanywhere.com/employeeMain" />
+    </body>
+</html>

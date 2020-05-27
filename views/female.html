@@ -1,0 +1,129 @@
+<%
+
+#This code Counts every single record in "Employee" table if their gender is "Female"
+
+resultFemale = c.execute("SELECT Count(*) FROM Employee WHERE Gender = 'Female'")
+
+#brings the result.
+
+resultFemale = c.fetchall()
+
+#Also, the following code has a for loop, it just displays the first attribute of it, which is the number counted.
+
+
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+
+    <head>
+        <title>Female</title>
+        <meta charset = "utf-8" ?>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+<br>
+
+    <center>
+    </head>
+
+           <p>Gender Ratio</p>
+
+    <body>
+        	<div>
+
+
+    <br>
+
+        <br>
+        <table>
+            <tr>
+                <th>Female</th>
+
+
+            </tr>
+
+            %for record in resultFemale:
+            <tr>
+                <td>There are {{record[0]}} females in the company.</td>
+            </tr>
+            %end
+
+        </table>
+
+    </center>
+    </body>
+</html>

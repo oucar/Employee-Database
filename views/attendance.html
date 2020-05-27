@@ -1,0 +1,135 @@
+<%
+#Reads everything from "Employee" table.
+result = c.execute("SELECT * FROM Employee")
+end
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+
+    <head>
+        <title>Attendances</title>
+        <meta charset = "utf-8" ?>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com/">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+<br>
+
+	<div>
+    </head>
+
+    <body>
+    <center><br>
+        <h3>Attendance Statistics</h3>
+        <p>Display the employees whose attendance warnings are greater than..</p>
+        <form action = "attendanceResult"
+              method = "post" />
+
+
+
+</select>
+
+              <label for="AttendanceInput"></label>
+              <select id="AttendanceInput" name="AttendanceInput">
+        <option value ="1">1</option>
+        <option value ="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+
+            </select>
+            <br><br>
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+		</div>
+ 	</center>
+
+
+    </body>
+</html>

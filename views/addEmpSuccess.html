@@ -1,0 +1,46 @@
+<%
+from bottle import request
+
+##The following codes are part of the bottle framework. They're basically getting the inputs that user wanted to add
+#to "Employee" table.
+
+
+FirstName = request.forms.get("FirstName")
+LastName = request.forms.get("LastName")
+Email = request.forms.get("Email")
+Gender = request.forms.get("Gender")
+Age = request.forms.get("Age")
+Salary = request.forms.get("Salary")
+DateStarted = request.forms.get("DateStarted")
+DID = request.forms.get("DID")
+AttendanceWarns = request.forms.get("AttendanceWarns")
+
+##This code is inserting all the values to "Employee" database by using the inputs. Every single question mark indicates that
+#the SQLite code is inserting the input that user want.
+
+
+c.execute("INSERT INTO Employee VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?)",(FirstName, LastName, Email, Gender, Age, Salary, DateStarted, DID, AttendanceWarns))
+
+## Finishes inserting.
+
+db.commit()
+
+
+%>
+<!DOCTYPE HTML>
+<html lang = "en-us">
+    <head>
+        <title>Employee Added!</title>
+        <meta charset = "utf-8" ?>
+    </head>
+    <center>
+    <body>
+        <h2>Magic Time!</h2>
+        <p>Adding {{FirstName}} {{LastName}} to the employee database..<p>
+        <br>
+        <p>You'll be redirecting to the main menu in a second...</p>
+
+    <meta http-equiv="refresh" content="1;url=http://onurucar.pythonanywhere.com/" />
+    </center>
+    </body>
+</html>

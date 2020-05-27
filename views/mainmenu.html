@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+/* Images */
+
+img {
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+img:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+img {
+  border: 2px solid #ddd;
+  border-radius: 22px;
+  padding: 10px;
+  width: 100px;
+}
+
+.align img {
+    vertical-align: middle;
+}
+
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+
+
+.caption {
+    display: block;
+}
+
+span {
+  font-size: 0.875em;
+  font-family: Optima, sans-serif;
+
+}
+
+
+
+
+</style>
+</head>
+<title>Main Menu</title>
+<body>
+
+
+<center>
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+
+<br><br><br>
+<br>
+
+
+<div class="item">
+	<a href="/employeeMain"><img src="https://img.icons8.com/dusk/512/000000/user-group-man-woman.png"  alt = "Employees" title="Employees"></a>
+    <span class="caption">Employees</span>
+    </div>&nbsp;&nbsp;&nbsp;
+
+
+<div class="item">
+	<a href="/departmentView"><img src="https://img.icons8.com/dusk/512/000000/company.png" alt ="Departments" title="Departments" ></a>
+    <span class="caption">Departments</span>
+</div>&nbsp;&nbsp;&nbsp;
+
+
+<div class="item">
+	<a href="/statistics"><img src="https://img.icons8.com/dusk/512/000000/bar-chart.png" alt = "Statistics" title="Statistics"></a>
+    <span class="caption">Statistics</span>
+
+
+<center>
+</body>
+</html>

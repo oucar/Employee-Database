@@ -1,0 +1,195 @@
+<%
+from bottle import request
+
+##Since a company has a name more than one time, I used their ID numbers to make operations on them.
+#Gets input from the previous page.
+
+ID = request.forms.get("ID")
+
+##Reads everything from the previous page based on user's input.
+
+result = c.execute("SELECT * FROM Employee WHERE ID = ?",(ID, ))
+
+##Creates a Python loop to create a row for every single attribute in the table.
+
+for record in result:
+  FirstName = record[1]
+  LastName = record[2]
+  Email = record[3]
+  Gender = record[4]
+  Age = record[5]
+  Salary = record[6]
+  DateStarted = record[7]
+  DID = record[8]
+  AttendanceWarns = record[9]
+end
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+
+    <style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+
+    <head>
+        <title>Edit an Employee</title>
+        <meta charset = "utf-8" ?>
+    </head>
+    <body>
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div><br>
+
+    <div><br>
+
+        <center><h3>Edit an Employee</h3></center>
+        <form action = "editSuccess"
+              method = "post">
+
+
+    <center>
+            <label>Selected employee's ID:</label>
+            <label class = "lblOut">{{ID}}</label>
+            <input type = "hidden"
+                   name = "ID"
+                   value = "{{ID}}" /><br><br><br>
+    </center>
+
+
+            <label>FirstName</label>
+            <input type = "text"
+                   name = "FirstName"
+                   value = "{{FirstName}}" />
+
+            <label>LastName</label>
+            <input type = "text"
+                   name = "LastName"
+                   value = "{{LastName}}" />
+
+            <label>E-mail</label>
+            <input type ="text"
+                   name = "Email"
+                   value = "{{Email}}"/>
+
+            <label>Gender</label>
+    <select id="Gender" name="Gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+            <label>Age</label>
+            <input type = "text"
+                   name = "Age"
+                   value = "{{Age}}" />
+
+             <label>Salary</label>
+            <input type = "text"
+                   name = "Salary"
+                   value = "{{Salary}}" />
+
+            <label>DateStarted</label>
+            <input type = "text"
+                   name = "DateStarted"
+                   value = "{{DateStarted}}" />
+
+    <label for="DID">Department</label>
+    <select id="DID" name="DID">
+        <option value ="1">Computer Science</option>
+        <option value ="2">Human Resources</option>
+        <option value="3">Production</option>
+        <option value="4">Accounting and Finance</option>
+        <option value="5">Engineering</option>
+        <option value="6">Product Design</option>
+        <option value="7">Marketing</option>
+        <option value="8">Business</option>
+        <option value="9">Logistics</option>
+        <option value="10">Administration</option>
+        <option value="11">Purchasing</option>
+    </select>
+
+            <label>Attendance Warns</label>
+            <p><font size="2">0-30 minutes: 1 warning points<br>31-60 minutes: 3 warning points<br> Over 60 minutes 5 warning points</font></p>
+            <input type = "text"
+                   name = "AttendanceWarns"
+                   placeholder = "Current attendance warns: {{AttendanceWarns}} "
+                   value = "" />
+
+
+
+
+
+
+            <input type ="submit" value="Submit">
+        </form>
+    </div>
+    </body>
+</html>

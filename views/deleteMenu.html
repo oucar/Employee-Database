@@ -1,0 +1,190 @@
+<%
+
+from bottle import request
+
+#Gets the information from previous page.
+
+ID = request.forms.get("ID")
+FirstName = request.forms.get("FirstName")
+
+
+#Reads everything from "Employee" table based on user's ID input.
+
+result = c.execute("SELECT * FROM Employee WHERE ID = ?",(ID,))
+
+
+#These inputs used as "hidden". Even though we don't see them in HTML page, they're sending to the next page along with their ID number.
+
+for record in result:
+
+    FirstName = record[1]
+    LastName = record [2]
+    Email = record[3]
+    Gender = record[4]
+    Age = record[5]
+    Salary = record[6]
+    DateStarted = record[7]
+    DID = record[8]
+
+#Also "Reason for leaving" and "Date left" will be asked to the user, even though they're not related with the main function of "Delete Employee"
+#page. They will be using for adding the users into "OldEmployees" table.
+
+end
+%>
+<!DOCTYPE html>
+<html lang = "en-us">
+        <style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+    <head>
+        <title>Delete an Employee</title>
+        <meta charset = "utf-8" />
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+<br>
+
+    </head>
+    <body>
+        <center>
+        <h1>Delete Contact</h1>
+
+        <div>
+        <br>
+        <p>Selected employee's ID: {{ID}}</p>
+
+        <form action = "deleteSuccess"
+              method = "post">
+            <h2>Are you sure you really want to delete {{FirstName}}?</h2>
+
+            <input type = "hidden"
+                   name = "ID"
+                   value = "{{ID}}" />
+
+            <input type = "hidden"
+                   name = "FirstName"
+                   value = "{{FirstName}}" />
+
+            <input type = "hidden"
+                   name = "LastName"
+                   value = "{{LastName}}" />
+
+            <input type = "hidden"
+                   name = "Email"
+                   value = "{{Email}}" />
+
+            <input type = "hidden"
+                   name = "Gender"
+                   value = "{{Gender}}" />
+
+            <input type = "hidden"
+                   name = "Age"
+                   value = "{{Age}}" />
+
+            <input type = "hidden"
+                   name = "Salary"
+                   value = "{{Salary}}" />
+
+            <input type = "hidden"
+                   name = "DID"
+                   value = "{{DID}}" />
+
+            <input type = "hidden"
+                   name = "DateStarted"
+                   value = "{{DateStarted}}" />
+
+            <input type = "text"
+                    name = "DateLeft"
+                    value =""
+                    placeholder = "Date left"/>
+
+            <input type = "text"
+                    name ="ReasonFL"
+                    value = ""
+                    placeholder ="Reason for leaving"/>
+
+
+
+
+
+
+
+
+
+        <input type = "submit" value = "Delete!">
+        <br>
+        </form>
+        </div>
+        </center>
+
+    </body>
+</html>

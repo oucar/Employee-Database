@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+<title>Add Employee</title>
+<body>
+<center>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+
+
+
+
+<h3>Add a new employee</h3>
+</center>
+
+
+<div>
+<br>
+  <form action="/addEmpSuccess"
+    method = "post">
+    <label for="FirstName">First Name</label>
+    <input type="text" id="FirstName" name="FirstName">
+
+    <label for="LastName">Last Name</label>
+    <input type="text" id="LastName" name="LastName" >
+
+    <label for ="Email">E-mail</label>
+    <input type="text" id="Email" name="Email">
+
+    <label for="Gender">Gender</label>
+    <select id="Gender" name="Gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="Age">Age</label>
+    <input type="text" id="Age" name="Age">
+
+    <label for="Salary">Salary</label>
+    <input type="text" id="Salary" name="Salary" placeholder = "in USD" >
+
+    <label for="DateStarted">Date Started</label>
+    <input type="text" id="DateStarted" name="DateStarted" >
+
+    <label for="DID">Department</label>
+    <select id="DID" name="DID">
+        <option value ="1">Computer Science</option>
+        <option value ="2">Human Resources</option>
+        <option value="3">Production</option>
+        <option value="4">Accounting and Finance</option>
+        <option value="5">Engineering</option>
+        <option value="6">Product Design</option>
+        <option value="7">Marketing</option>
+        <option value="8">Business</option>
+        <option value="9">Logistics</option>
+        <option value="10">Administration</option>
+        <option value="11">Purchasing</option>
+    </select>
+
+    <label for ="AttendanceWarns"></label>
+    <input type="hidden" id="AttendanceWarns" name ="AttendanceWarns" value="0">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>

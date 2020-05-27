@@ -1,0 +1,132 @@
+<%
+
+#It reads "DID" from "Employee" table and uses it in the next page.
+result = c.execute("SELECT DID FROM Employee")
+end
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+
+    <head>
+        <title>How many people in there?</title>
+        <meta charset = "utf-8" ?>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+
+<br>
+
+	<div>
+    </head>
+
+    <body>
+    <center><br>
+        <h3>Number of people in departments</h3>
+        <p>Please choose one of the following departments to see how many people work in there.</p>
+        <form action = "howManyResult"
+              method = "post" />
+
+
+
+</select>
+
+              <label for="DID">Department</label>
+              <select id="DID" name="DID">
+        <option value ="1">Computer Science</option>
+        <option value ="2">Human Resources</option>
+        <option value="3">Production</option>
+        <option value="4">Accounting and Finance</option>
+        <option value="5">Engineering</option>
+        <option value="6">Product Design</option>
+        <option value="7">Marketing</option>
+        <option value="8">Business</option>
+        <option value="9">Logistics</option>
+        <option value="10">Administration</option>
+        <option value="11">Purchasing</option>
+            </select>
+            <br><br>
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+		</div>
+ 	</center>
+
+
+    </body>
+</html>

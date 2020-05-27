@@ -1,0 +1,111 @@
+<%
+#Reads everything from Employee in order to display attributes on dropdown list.
+result = c.execute("SELECT * FROM EMPLOYEE")'
+
+#It also creates a loop to display different attributes in a record. ((Onur, Ucar, onurucar@iu.edu)) record[0] represents FirstName
+#record[2] represents LastName..
+
+%>
+
+<!DOCTYPE HTML>
+<html lang = "en-us">
+    <style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #3399CC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #90BFFF;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+}
+
+/* Navigation bar */
+body {
+  margin: 10;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  border-radius: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f0;
+  text-align: center;
+  padding: 15px 15px;
+
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #FFF;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #3399CC;
+  color: white;
+}
+
+</style>
+
+    <head>
+        <title>Delete an Employee</title>
+        <meta charset = "utf-8" ?>
+
+    <div class="topnav">
+  <a class="active" href="http://onurucar.pythonanywhere.com">Main Menu</a>
+  <a href="http://onurucar.pythonanywhere.com/employeeMain">Employees</a>
+  <a href="http://onurucar.pythonanywhere.com/departmentView">Departments</a>
+  <a href="http://onurucar.pythonanywhere.com/statistics">Statistics</a>
+    </div>
+<br>
+    </head>
+    <body>
+        <center>
+        <h1>Delete an Employee</h1>
+        <p>This page deletes an employee from "Employee" table and adds the deleted user to "Old Employee" table.</p>
+        <form action = "deleteMenu"
+              method = "post" />
+            <select name = "ID">
+            %for record in result:
+              <option value = "{{record[0]}}">{{record[0]}} - {{record[1]}} {{record[2]}}</option>
+              %end
+            </select>
+
+
+            <input type="submit" value="Submit">
+        </form>
+        </center>
+
+    </body>
+</html>
