@@ -11,7 +11,7 @@ Please feel free to test it out at http://onurucar.pythonanywhere.com!
   * The server was created using Python3.7.
   * In order to interact with database and its tables, Python and its frameworks were used.  
   * Required frameworks and modules imported before work on actual Python code.
-  * In order to display the data that users want; Python used inside of the HTML codes.
+  * In order to display the data that users want, Python used inside of the HTML codes.
 	
 * Bottle.py – a micro web-framework for Python.
   * Bottle.py was used to make the Python code run on a website.
@@ -21,10 +21,6 @@ Please feel free to test it out at http://onurucar.pythonanywhere.com!
 
 * HTML & CSS – creating the web page.
   * HTML & CSS were used to build the basic functions on a website, such as forwarding to a new page and creating visual effects.
-
-
-I have already explained *almost* everything in a Word document which is located in the "Documents" file. Please check it out for the explanations and database relationships.
-
 
 
 If you have any questions, please feel free to reach me at onurucar@iu.edu
