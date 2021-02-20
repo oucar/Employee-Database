@@ -1,6 +1,6 @@
 # Employee-Database
 __
-***This is a basic employee database system that I built for my CS23000 Final Project.***
+***This is a basic employee database system that I built for CS23000 Final Project.***
 
 Please feel free to test it out at http://onurucar.pythonanywhere.com! 
 
